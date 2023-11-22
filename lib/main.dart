@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_school_firebase/cubits/Auth/auth_cubit.dart';
+import 'package:it_school_firebase/cubits/posts/posts_cubit.dart';
+import 'package:it_school_firebase/screens/posts_screen.dart';
 
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -24,10 +26,11 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AuthCubit()),
+        BlocProvider(create: (context) => PostsCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoginScreen(),
+        home: PostsScreen(),
       ),
     );
   }
